@@ -2,7 +2,7 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/rodrigo/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="ys"
 
@@ -92,7 +92,4 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-export DENO_INSTALL="/home/rodrigo/.deno"
-export PATH="$DENO_INSTALL/bin:$PATH"
-
-alias dotfiles='/usr/bin/git --git-dir=/home/rodrigo/.dotfiles/ --work-tree=/home/rodrigo'
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
