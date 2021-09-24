@@ -1,5 +1,9 @@
 " Other {{{
-  colorscheme codedark
+  set exrc
+  set secure
+  set nocompatible
+
+  colorscheme tender
   set nomodeline
   
   " leader is comma
@@ -7,9 +11,25 @@
 
   " save session
   nnoremap <leader>s :mksession<CR>
+"  nnoremap <space> <CR>
 
   " highlight last inserted text
   nnoremap gV `[v`]
+
+"  map <C-j> <C-W>j
+"  map <C-k> <C-W>k
+"  map <C-h> <C-W>h
+"  map <C-l> <C-W>l
+
+  nnoremap <C-h> gT
+  nnoremap <C-l> gt
+
+	nnoremap <A-j> :m .+1<CR>==
+	nnoremap <A-k> :m .-2<CR>==
+	inoremap <A-j> <Esc>:m .+1<CR>==gi
+	inoremap <A-k> <Esc>:m .-2<CR>==gi
+	vnoremap <A-j> :m '>+1<CR>gv=gv
+	vnoremap <A-k> :m '<-2<CR>gv=gv
 
   " enable syntax processing
   syntax enable 
@@ -17,12 +37,14 @@
   set encoding=utf-8
   set clipboard=unnamedplus
 " }}}
+
 " Tabs & Spaces {{{
-  set expandtab
+  set noexpandtab
   set tabstop=2
   set softtabstop=2
   set shiftwidth=2
 "}}}
+
 " Other {{{
   "UI CONFIG
   set number
@@ -38,6 +60,8 @@
   set hlsearch
   " turn off search highlight
   nnoremap <leader><space> :nohlsearch<CR>
+
+  set path+=**
 
   "FOLDING
 "  set foldenable
@@ -55,15 +79,19 @@
     Plug 'chun-yang/auto-pairs'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-ragtag'
+    Plug 'tpope/vim-vinegar'
     Plug 'tpope/vim-commentary'
     Plug 'evanleck/vim-svelte'
     Plug 'pangloss/vim-javascript'
     Plug 'HerringtonDarkholme/yats.vim'
-    " Plug 'sheerun/vim-polyglot'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'codechips/coc-svelte', {'do': 'npm install'}
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
+    Plug 'Shougo/context_filetype.vim'
+    Plug 'preservim/nerdcommenter'
+    Plug 'tomlion/vim-solidity'	
+    Plug 'francoiscabrol/ranger.vim'
     let g:airline_powerline_fonts = 1
     let g:airline#extensions#tabline#enabled = 1
  
@@ -74,6 +102,58 @@
   let g:prettier#quickfix_enabled = 0
   let g:prettier#autoformat_require_pragma = 0
   au BufWritePre *.css,*.svelte,*.pcss,*.html,*.ts,*.js,*.json PrettierAsync
+" }}}
+
+" Context Settings {{{
+  if !exists('g:context_filetype#same_filetypes')
+    let g:context_filetype#filetypes = {}
+  endif
+
+  let g:context_filetype#filetypes.svelte =
+  \ [
+  \   {'filetype' : 'javascript', 'start' : '<script>', 'end' : '</script>'},
+  \   {
+  \     'filetype': 'typescript',
+  \     'start': '<script\%( [^>]*\)\? \%(ts\|lang="\%(ts\|typescript\)"\)\%( [^>]*\)\?>',
+  \     'end': '',
+  \   },
+  \   {'filetype' : 'css', 'start' : '<style \?.*>', 'end' : '</style>'},
+  \ ]
+
+  let g:ft = ''
+" }}}
+
+" NERDCommenter settings {{{
+  let g:NERDSpaceDelims = 1
+  let g:NERDCompactSexyComs = 1
+  let g:NERDCustomDelimiters = { 'html': { 'left': '' } }
+
+  " Align comment delimiters to the left instead of following code indentation
+  let g:NERDDefaultAlign = 'left'
+
+  fu! NERDCommenter_before()
+    if (&ft == 'html') || (&ft == 'svelte')
+      let g:ft = &ft
+      let cfts = context_filetype#get_filetypes()
+      if len(cfts) > 0
+        if cfts[0] == 'svelte'
+          let cft = 'html'
+        elseif cfts[0] == 'scss'
+          let cft = 'css'
+        else
+          let cft = cfts[0]
+        endif
+        exe 'setf ' . cft
+      endif
+    endif
+  endfu
+
+  fu! NERDCommenter_after()
+    if (g:ft == 'html') || (g:ft == 'svelte')
+      exec 'setf ' . g:ft
+      let g:ft = ''
+    endif
+  endfu
 " }}}
 
 " Netrw Settings {{{
@@ -102,11 +182,15 @@
 
   " Hit enter in the file browser to open the selected
   " file with :vsplit to the right of the browser.
-  let g:netrw_browse_split = 3
-  let g:netrw_altv = 1
+  let g:netrw_banner=0        " disable annoying banner
+  let g:netrw_browse_split=3  " open in prior window
+  let g:netrw_altv=1          " open splits to the right
+  let g:netrw_liststyle=3     " tree view
+  let g:netrw_list_hide=netrw_gitignore#Hide()
+  let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 
-  " Default to tree mode
-  let g:netrw_liststyle=3
+  autocmd FileType netrw nmap <buffer> l <CR>
+  autocmd FileType fzf tnoremap <buffer> <CR> <C-t>
 
   " Change directory to the current buffer when opening files.
   " set autochdir
