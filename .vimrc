@@ -3,7 +3,7 @@
   set secure
   set nocompatible
 
-  colorscheme tender
+  " colorscheme tender 
   set nomodeline
   
   " leader is comma
@@ -87,16 +87,18 @@
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'codechips/coc-svelte', {'do': 'npm install'}
     Plug 'vim-airline/vim-airline'
+		Plug 'dracula/vim', { 'as': 'dracula'  }
     Plug 'vim-airline/vim-airline-themes'
+    let g:airline_powerline_fonts = 1
+    let g:airline#extensions#tabline#enabled = 1
     Plug 'Shougo/context_filetype.vim'
     Plug 'preservim/nerdcommenter'
     Plug 'tomlion/vim-solidity'	
-    Plug 'francoiscabrol/ranger.vim'
-    let g:airline_powerline_fonts = 1
-    let g:airline#extensions#tabline#enabled = 1
- 
+		Plug 'rajasegar/vim-astro', {'branch': 'main'}
     Plug 'prettier/vim-prettier', { 'do': 'npm install' }
  call plug#end()
+
+ colorscheme dracula
 
  " Prettier Settings {{{
   let g:prettier#quickfix_enabled = 0
