@@ -96,6 +96,10 @@
     Plug 'tomlion/vim-solidity'	
 		Plug 'rajasegar/vim-astro', {'branch': 'main'}
     Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+		Plug 'rust-lang/rust.vim'
+		Plug 'Chiel92/vim-autoformat'
+		let g:formatdef_rustfmt = '"rustfmt"'
+		let g:formatters_rust = ['rustfmt']
  call plug#end()
 
  colorscheme dracula
