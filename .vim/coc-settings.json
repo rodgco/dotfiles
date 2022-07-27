@@ -1,4 +1,6 @@
 {
-  "json.enable": true,
-  "svelte.enable-ts-plugin": true
+	"json.enable": true,
+	"svelte.enable-ts-plugin": true,
+	"tsserver.log": "verbose",
+	"typescript.suggest.completeJSDocs": true
 }

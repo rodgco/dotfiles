@@ -21,8 +21,17 @@
 "  map <C-h> <C-W>h
 "  map <C-l> <C-W>l
 
-  nnoremap <C-h> gT
-  nnoremap <C-l> gt
+  " nnoremap <C-h> gT
+  " nnoremap <C-l> gt
+
+	nnoremap <C-t><up> :tabr<cr>
+	nnoremap <C-k> :tabr<cr>
+	nnoremap <C-t><down> :tabl<cr>
+	nnoremap <C-j> :tabl<cr>
+	nnoremap <C-t><left> :tabp<cr>
+	nnoremap <C-h> :tabp<cr>
+	nnoremap <C-t><right> :tabn<cr>
+	nnoremap <C-l> :tabn<cr>
 
 	nnoremap <A-j> :m .+1<CR>==
 	nnoremap <A-k> :m .-2<CR>==
@@ -96,6 +105,7 @@
     Plug 'tomlion/vim-solidity'	
 		Plug 'rajasegar/vim-astro', {'branch': 'main'}
     Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+		Plug 'mattn/emmet-vim'
 		Plug 'rust-lang/rust.vim'
 		Plug 'Chiel92/vim-autoformat'
 		let g:formatdef_rustfmt = '"rustfmt"'
@@ -103,6 +113,8 @@
 		Plug 'jpalardy/vim-slime'
 		let g:slime_target="tmux"
 		let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": ":.2"}
+		Plug 'stevearc/vim-arduino'
+		let g:arduino_dir='/opt/arduino-1.8.19'
  call plug#end()
 
  colorscheme dracula
