@@ -115,6 +115,7 @@
 		let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": ":.2"}
 		Plug 'stevearc/vim-arduino'
 		let g:arduino_dir='/opt/arduino-1.8.19'
+		Plug 'pantharshit00/vim-prisma'
  call plug#end()
 
  colorscheme dracula
