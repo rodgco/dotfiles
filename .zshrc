@@ -92,7 +92,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles/.dotfiles/ --work-tree=$HOME'
 alias s="git status -sb"
 
 export FZF_DEFAULT_COMMAND='rg --files --sort path --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*}"'
