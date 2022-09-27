@@ -43,8 +43,8 @@ call plug#begin()
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'Shougo/context_filetype.vim'
 	Plug 'evanleck/vim-svelte'
-    Plug 'pangloss/vim-javascript'
-    Plug 'HerringtonDarkholme/yats.vim'
+	Plug 'pangloss/vim-javascript'
+	Plug 'HerringtonDarkholme/yats.vim'
 
 	" Visual
 	Plug 'vim-airline/vim-airline'
