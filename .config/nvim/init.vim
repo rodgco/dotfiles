@@ -31,6 +31,11 @@ call plug#begin()
 	" Chore
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
+	Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+  let g:prettier#quickfix_enabled = 0
+  let g:prettier#autoformat_require_pragma = 0
+  au BufWritePre *.css,*.svelte,*.pcss,*.html,*.ts,*.js,*.json,*.sol PrettierAsync
+	" Plug 'mattn/emmet-vim'
 
 	" Dev Helpers
 	Plug 'chun-yang/auto-pairs'
