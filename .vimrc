@@ -36,6 +36,7 @@ call plug#begin()
   let g:prettier#autoformat_require_pragma = 0
   au BufWritePre *.css,*.svelte,*.pcss,*.html,*.ts,*.js,*.json,*.sol PrettierAsync
 	" Plug 'mattn/emmet-vim'
+	Plug 'christoomey/vim-tmux-navigator'
 
 	" Dev Helpers
 	Plug 'chun-yang/auto-pairs'
@@ -50,6 +51,7 @@ call plug#begin()
 	Plug 'evanleck/vim-svelte'
 	Plug 'pangloss/vim-javascript'
 	Plug 'HerringtonDarkholme/yats.vim'
+	Plug 'tovarishfin/vim-solidity'
 
 	" Visual
 	Plug 'vim-airline/vim-airline'
