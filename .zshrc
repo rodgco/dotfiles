@@ -110,3 +110,5 @@ export PATH="$PNPM_HOME:$PATH"
 # Bun
 export BUN_INSTALL="/home/rodrigo/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+source /home/rodrigo/.config/broot/launcher/bash/br

@@ -27,6 +27,12 @@ set hlsearch
 
 imap <c-space> <c-y>
 
+" No arrow keys
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+
 call plug#begin()
 	" Chore
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
