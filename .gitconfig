@@ -3,3 +3,5 @@
 	name = Rodrigo Couto
 [init]
 	defaultBranch = main
+[commit]
+	template = /home/rodrigo/.gitmessage

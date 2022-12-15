@@ -1,0 +1,30 @@
+# 1. Separate subject from body with a blank line
+# 2. Limit the subject line to 50 characters
+# 3. Capitalize the subject line
+# 4. Do not end the subject line with a period
+# 5. Use the imperative mood in the subject line
+#    If applied, this commit will... <your subject line here>
+# 6. Wrap the body at 72 characters
+# 7. Use the body to explain what and why vs. how
+#
+# No more than 50 chars. ##### 50 chars is here: #
+<type>: <title>
+
+# feat: Features - A new feature	sparkles
+# fix: Bug Fixes - A bug Fix	bug
+# docs: Documentation - Documentation only changes	books
+# style: Styles - Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)	gem
+# refactor: Code Refactoring - A code change that neither fixes a bug nor adds a feature	package
+# perf: Performance Improvements - A code change that improves performance	rocket
+# test: Tests - Adding missing tests or correcting existing tests	rotating_light
+# build: Builds - Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)	hammer_and_wrench
+# ci: Continuous Integrations - Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)	gear
+# chore: Chores - Other changes that don't modify src or test files	recycle
+# revert: Reverts - Reverts a previous commit	wastebasket
+#
+# Wrap at 72 chars. ################################### which is here: #
+# <body>
+# BREAKING CHANGE: a commit that has the text BREAKING CHANGE: at the beginning of its optional body or footer section introduces a breaking API change (correlating with MAJOR in semantic versioning). A breaking change can be part of commits of any type. e.g., a fix:, feat: & chore: types would all be valid, in addition to any other type.
+#
+# The footer MUST only contain BREAKING CHANGE, external links, issue references, and other meta-information.
+# Issue #

@@ -61,7 +61,8 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(git nvm)
 
 # OMZ NVM Plugin
-export NVM_AUTOLOAD=1
+zstyle ':omz:plugins:nvm' autoload true
+# export NVM_AUTOLOAD=1
 
 source $ZSH/oh-my-zsh.sh
 
@@ -72,7 +73,8 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-export EDITOR='vim'
+export EDITOR='nvim'
+alias vim="nvim"
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
