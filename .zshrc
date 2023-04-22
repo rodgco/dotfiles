@@ -58,7 +58,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git nvm)
+plugins=(git nvm conda)
 
 # OMZ NVM Plugin
 zstyle ':omz:plugins:nvm' autoload true
@@ -114,3 +114,20 @@ export BUN_INSTALL="/home/rodrigo/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 source /home/rodrigo/.config/broot/launcher/bash/br
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/rodrigo/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/rodrigo/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/rodrigo/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/rodrigo/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+export VIRTUAL_ENV_DISABLE_PROMPT=True

@@ -6,6 +6,7 @@ vim.cmd([[packadd packer.nvim]])
 return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
+ 
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.0',
         -- or                            , branch = '0.1.x',
@@ -23,6 +24,7 @@ return require('packer').startup(function(use)
     }
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use { 'nvim-treesitter/playground' }
+    use { 'HiPhish/nvim-ts-rainbow2' }
     use 'theprimeagen/harpoon'
     use 'mbbill/undotree'
     use 'tpope/vim-fugitive'
@@ -32,6 +34,7 @@ return require('packer').startup(function(use)
     use 'prettier/vim-prettier'
     -- use 'tpope/vim-commentary'
     -- use 'chun-yang/auto-pairs'
+    use { 'yoavbls/pretty-ts-errors' }
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
@@ -44,7 +47,7 @@ return require('packer').startup(function(use)
             -- LSP Support
             {'neovim/nvim-lspconfig'},
             {'williamboman/mason.nvim'},
-            {'williamboman/mason-lspconfig.nvim'},
+             {'williamboman/mason-lspconfig.nvim'},
 
             -- Autocompletion
             {'hrsh7th/nvim-cmp'},
@@ -74,4 +77,5 @@ return require('packer').startup(function(use)
     use { "kyazdani42/nvim-web-devicons" }
     use { 'Shougo/context_filetype.vim' }
     use { 'christoomey/vim-tmux-navigator'}
+   --  use { 'chrisbra/Colorizer' }
 end)

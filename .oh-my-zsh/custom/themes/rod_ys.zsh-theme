@@ -44,6 +44,9 @@ ys_hg_prompt_info() {
 	fi
 }
 
+# Conda
+local conda_info='$(conda_env_prompt_info)'
+
 # Virtualenv
 local venv_info='$(virtenv_prompt)'
 YS_THEME_VIRTUALENV_PROMPT_PREFIX=" %{$fg[green]%}"
@@ -70,6 +73,7 @@ PROMPT="
 ${hg_info}\
 ${git_info}\
 ${svn_info}\
+${conda_info}\
 ${venv_info}\
  \
 $exit_code

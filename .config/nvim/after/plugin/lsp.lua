@@ -6,18 +6,7 @@ lsp.ensure_installed({
   'tsserver',
   'svelte',
   -- 'eslint',
-  'sumneko_lua',
   'rust_analyzer',
-})
-
-lsp.configure('sumneko_lua', {
-    settings = {
-        Lua = {
-            diagnostics = {
-                globals = { 'vim' }
-            }
-        }
-    }
 })
 
 local cmp = require('cmp')
