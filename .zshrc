@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:/usr/local/go/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:/usr/local/go/bin:$HOME/go/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -100,33 +100,26 @@ export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f
 hash -d github.com=/home/rodrigo/dev/github
 
 export PNPM_HOME="/home/rodrigo/.local/share/pnpm"
-export PATH="$PNPM_HOME:$PATH"
+export PATH="$PATH:$PNPM_HOME"
 
 # bun completions
 [ -s "/home/rodrigo/.bun/_bun" ] && source "/home/rodrigo/.bun/_bun"
 
 # Bun
 export BUN_INSTALL="/home/rodrigo/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH="$PATH:$BUN_INSTALL/bin"
 
 source /home/rodrigo/.config/broot/launcher/bash/br
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/rodrigo/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/rodrigo/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/rodrigo/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/rodrigo/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
 export VIRTUAL_ENV_DISABLE_PROMPT=True
 
-# Set PATH, MANPATH, etc., for Homebrew.
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export AOC_SESSION=53616c7465645f5f0a074ed932ffe272d050dcec5f11448b793b9d7c48ef072c2e86cc988e5d31676e10197d60171cd45dd6fac01015b104c2140682d03dacef
+
+eval $(thefuck --alias)
+
+# Turso
+export PATH="/home/rodrigo/.turso:$PATH"

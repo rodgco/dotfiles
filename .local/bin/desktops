@@ -32,15 +32,21 @@ monitor_remove() {
 		bspc desktop $desktop --to-monitor $internal_monitor
 	done
 
-	bspc monitor $external_monitor -r # Remove external monitor
 	bspc desktop Desktop --remove # Remove temp desktops
 }
 
-bspc monitor eDP-1 -d I II III IV V VI VII VIII
-
 if [[ $(xrandr -q | grep "$external_monitor connected") ]]; then
     monitor_add
+		xrandr --output eDP-1 --primary --mode 1366x768 --rotate normal --output HDMI-1 --mode 2560x1080 --rotate normal --left-of eDP-1
 else
     monitor_remove
+		xrandr --output eDP-1 --primary --mode 1366x768 --rotate normal
 fi
 
+killall synergy
+
+$HOME/.fehbg
+compton &
+/usr/bin/numlockx on
+$HOME/.config/polybar/launch.sh
+/usr/bin/synergy &

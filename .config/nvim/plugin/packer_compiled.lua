@@ -174,6 +174,11 @@ _G.packer_plugins = {
     path = "/home/rodrigo/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  ["nightfox.nvim"] = {
+    loaded = true,
+    path = "/home/rodrigo/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
+    url = "https://github.com/EdenEast/nightfox.nvim"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/home/rodrigo/.local/share/nvim/site/pack/packer/start/nvim-cmp",
@@ -189,30 +194,30 @@ _G.packer_plugins = {
     path = "/home/rodrigo/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
-  ["nvim-ts-rainbow2"] = {
-    loaded = true,
-    path = "/home/rodrigo/.local/share/nvim/site/pack/packer/start/nvim-ts-rainbow2",
-    url = "https://github.com/HiPhish/nvim-ts-rainbow2"
-  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/home/rodrigo/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
+  },
+  ["obsidian.nvim"] = {
+    loaded = true,
+    path = "/home/rodrigo/.local/share/nvim/site/pack/packer/start/obsidian.nvim",
+    url = "https://github.com/epwalsh/obsidian.nvim"
   },
   ["oceanic-next"] = {
     loaded = true,
     path = "/home/rodrigo/.local/share/nvim/site/pack/packer/start/oceanic-next",
     url = "https://github.com/mhartington/oceanic-next"
   },
+  ["oil.nvim"] = {
+    loaded = true,
+    path = "/home/rodrigo/.local/share/nvim/site/pack/packer/start/oil.nvim",
+    url = "https://github.com/stevearc/oil.nvim"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/rodrigo/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
-  },
-  playground = {
-    loaded = true,
-    path = "/home/rodrigo/.local/share/nvim/site/pack/packer/start/playground",
-    url = "https://github.com/nvim-treesitter/playground"
   },
   ["plenary.nvim"] = {
     loaded = true,
@@ -224,6 +229,11 @@ _G.packer_plugins = {
     path = "/home/rodrigo/.local/share/nvim/site/pack/packer/start/pretty-ts-errors",
     url = "https://github.com/yoavbls/pretty-ts-errors"
   },
+  ["rainbow-delimiters.nvim"] = {
+    loaded = true,
+    path = "/home/rodrigo/.local/share/nvim/site/pack/packer/start/rainbow-delimiters.nvim",
+    url = "https://github.com/hiphish/rainbow-delimiters.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/rodrigo/.local/share/nvim/site/pack/packer/start/telescope.nvim",
@@ -234,8 +244,13 @@ _G.packer_plugins = {
     path = "/home/rodrigo/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
   },
+  ["transparent.nvim"] = {
+    loaded = true,
+    path = "/home/rodrigo/.local/share/nvim/site/pack/packer/start/transparent.nvim",
+    url = "https://github.com/xiyaowong/transparent.nvim"
+  },
   ["trouble.nvim"] = {
-    config = { "\27LJ\2\0029\0\0\2\0\3\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0004\1\0\0B\0\2\1K\0\1\0\nsetup\ftrouble\frequire\0" },
+    config = { "\27LJ\2\2’\1\0\0\3\0\6\0\t6\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\4\0005\2\3\0=\2\5\1B\0\2\1K\0\1\0\nsigns\1\0\1\25use_diagnostic_signs\2\1\0\5\fwarning\6W\nother\6O\16information\6I\thint\6H\nerror\6E\nsetup\ftrouble\frequire\0" },
     loaded = true,
     path = "/home/rodrigo/.local/share/nvim/site/pack/packer/start/trouble.nvim",
     url = "https://github.com/folke/trouble.nvim"
@@ -244,6 +259,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/rodrigo/.local/share/nvim/site/pack/packer/start/undotree",
     url = "https://github.com/mbbill/undotree"
+  },
+  ["vim-delve"] = {
+    loaded = true,
+    path = "/home/rodrigo/.local/share/nvim/site/pack/packer/start/vim-delve",
+    url = "https://github.com/sebdah/vim-delve"
   },
   ["vim-fugitive"] = {
     loaded = true,
@@ -269,13 +289,18 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/rodrigo/.local/share/nvim/site/pack/packer/start/vim-vinegar",
     url = "https://github.com/tpope/vim-vinegar"
+  },
+  vimspector = {
+    loaded = true,
+    path = "/home/rodrigo/.local/share/nvim/site/pack/packer/start/vimspector",
+    url = "https://github.com/puremourning/vimspector"
   }
 }
 
 time([[Defining packer_plugins]], false)
 -- Config for: trouble.nvim
 time([[Config for trouble.nvim]], true)
-try_loadstring("\27LJ\2\0029\0\0\2\0\3\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0004\1\0\0B\0\2\1K\0\1\0\nsetup\ftrouble\frequire\0", "config", "trouble.nvim")
+try_loadstring("\27LJ\2\2’\1\0\0\3\0\6\0\t6\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\4\0005\2\3\0=\2\5\1B\0\2\1K\0\1\0\nsigns\1\0\1\25use_diagnostic_signs\2\1\0\5\fwarning\6W\nother\6O\16information\6I\thint\6H\nerror\6E\nsetup\ftrouble\frequire\0", "config", "trouble.nvim")
 time([[Config for trouble.nvim]], false)
 
 _G._packer.inside_compile = false

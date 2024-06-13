@@ -45,7 +45,7 @@ ys_hg_prompt_info() {
 }
 
 # Conda
-local conda_info='$(conda_env_prompt_info)'
+# local conda_info='$(conda_env_prompt_info)'
 
 # Virtualenv
 local venv_info='$(virtenv_prompt)'

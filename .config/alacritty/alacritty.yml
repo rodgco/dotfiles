@@ -44,8 +44,7 @@ window:
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  # opacity: 1.0
-  opacity: 0.90
+  opacity: 1.0
 
   # Window decorations
   #
@@ -127,7 +126,10 @@ font:
   # family: &ffam TerminessTTF Nerd Font
   # family: &ffam Mononoki Nerd Font
   # family: &ffam Fira Code
-  family: &ffam JetBrainsMono Nerd Font Mono
+  family: &ffam JetBrainsMonoNL Nerd Font Mono
+  # family: &ffam Monaspace Neon
+  # family: &ffam Ubuntu Nerd Font Mono
+  # family: &ffam monospace
 
   normal: 
     family: *ffam
@@ -153,13 +155,13 @@ font:
     style: Bold Italic
 
   # Point size
-  size: 9.0
+  size: 9 
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
   offset:
     x: 0
-    y: -2 
+    y: 0 
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increasing `x` moves the glyph to the right,
