@@ -13,5 +13,4 @@ export NVM_DIR="$HOME/.nvm"
 
 nvm install --lts
 
-npm i -g npm pnpm yarn
-
+npm i -g npm pnpm
