@@ -15,19 +15,20 @@ return require('packer').startup(function(use)
 		-- or                          , branch = '0.1.x',
 		requires = { { 'nvim-lua/plenary.nvim' } }
 	}
-	use 'mhartington/oceanic-next'
-	use 'folke/tokyonight.nvim'
-	use 'bluz71/vim-nightfly-colors'
-	use 'rebelot/kanagawa.nvim'
-	use 'luisiacc/gruvbox-baby'
-	use 'morhetz/gruvbox'
-	use {
-		'dracula/vim',
-		as = 'dracula'
-	}
+	-- use 'mhartington/oceanic-next'
+	-- use 'folke/tokyonight.nvim'
+	-- use 'bluz71/vim-nightfly-colors'
+	-- use 'rebelot/kanagawa.nvim'
+	-- use 'luisiacc/gruvbox-baby'
+	-- use { "ellisonleao/gruvbox.nvim" }
+	-- use 'morhetz/gruvbox'
+	-- use {
+	-- 	'dracula/vim',
+	-- 	as = 'dracula'
+	-- }
 	use { "catppuccin/nvim", as = "catppuccin" }
-	use { 'EdenEast/nightfox.nvim' }
-	use { 'xiyaowong/transparent.nvim' }
+	-- use { 'EdenEast/nightfox.nvim' }
+	-- use { 'xiyaowong/transparent.nvim' }
 	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 	-- use { 'nvim-treesitter/playground' }
 	use { 'hiphish/rainbow-delimiters.nvim' }
@@ -64,7 +65,7 @@ return require('packer').startup(function(use)
 			{ 'saadparwaiz1/cmp_luasnip' },
 			{ 'hrsh7th/cmp-nvim-lsp' },
 			{ 'hrsh7th/cmp-nvim-lua' },
-			{ 'sveltejs/language-tools' },
+			-- { 'sveltejs/language-tools' },
 
 			-- Snippets
 			{ 'L3MON4D3/LuaSnip' },

@@ -103,22 +103,50 @@ lsp.on_attach(function(client, bufnr)
 	vim.keymap.set('n', 'K', function() vim.lsp.buf.hover() end, opts)
 	vim.keymap.set('n', '<leader>vws', function() vim.lsp.buf.workspace_symbol() end, opts)
 	vim.keymap.set('n', '<leader>vd', function() vim.diagnostic.open_float() end, opts)
-	vim.keymap.set('n', '[d', function() vim.diagnostic.goto_next() end, opts)
-	vim.keymap.set('n', ']d', function() vim.diagnostic.goto_prev() end, opts)
+	vim.keymap.set('n', '[d', function() vim.diagnostic.get_next() end, opts)
+	vim.keymap.set('n', ']d', function() vim.diagnostic.get_prev() end, opts)
 	vim.keymap.set('n', '<leader>vca', function() vim.lsp.buf.code_action() end, opts)
 	vim.keymap.set('n', '<leader>vrr', function() vim.lsp.buf.references() end, opts)
 	vim.keymap.set('n', '<leader>vrn', function() vim.lsp.buf.rename() end, opts)
 	vim.keymap.set('i', '<C-h>', function() vim.lsp.buf.signature_help() end, opts)
+	vim.keymap.set('n', '<leader>vf', function() vim.lsp.buf.format() end, opts)
+
+	if vim.lsp.inlay_hint then
+		vim.keymap.set('n', '<leader>vl',
+			function()
+				if vim.lsp.inlay_hint.is_enabled()
+					then vim.lsp.inlay_hint.enable(false, { bufnr })
+
+					else vim.lsp.inlay_hint.enable(true, { bufnr })
+				end
+				print('inlay hints ' .. (vim.lsp.inlay_hint.is_enabled() and 'enabled' or 'disabled'))
+			end,
+			opts
+		)
+	end
 end)
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
 	-- Replace the language servers listed here 
 	-- with the ones you want to install
-	ensure_installed = {'tsserver', 'rust_analyzer'},
+	ensure_installed = {'tsserver', 'rust_analyzer', 'gopls'},
 	handlers = {
 		lsp.default_setup,
 	},
+	settings = {
+		gopls = {
+			gofumpt = true,
+		}
+	}
+})
+
+require('lspconfig').gopls.setup({
+	settings = {
+		gopls = {
+			gofumpt = true
+		}
+	}
 })
 
 lsp.setup()
