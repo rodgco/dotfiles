@@ -1,9 +1,29 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
+	-- This file can be loaded by calling `lua require('plugins')` from your init.vim
+
+--- Check if a file or directory exists in this path
+local function exists(file)
+	local ok, err, code = os.rename(file, file)
+	if not ok then
+		if code == 13 then
+			-- Permission denied, but it exists
+			return true
+		end
+	end
+	return ok, err
+end
+
+--- Check if a directory exists in this path
+local function isdir(path)
+	-- "/" works on both Unix and Windows
+	return exists(path.."/")
+end
 
 -- Only required if you have packer configured as `opt`
 vim.cmd([[packadd packer.nvim]])
 
 return require('packer').startup(function(use)
+	--- Check if a file or directory exists in this path
+
 	-- Packer can manage itself
 	use 'wbthomason/packer.nvim'
 
@@ -96,12 +116,16 @@ return require('packer').startup(function(use)
 	use { 'christoomey/vim-tmux-navigator' }
 	--  use { 'chrisbra/Colorizer' }
 	use { 'sebdah/vim-delve' }
-	use {
-		"epwalsh/obsidian.nvim",
-		tag = "*",  -- recommended, use latest release instead of latest commit
-		requires = {
-			-- Required.
-			"nvim-lua/plenary.nvim",
+	local obsidian, err = isdir(os.getenv("OBSIDIAN_PATH"))
+	print(os.getenv("OBSIDIAN_PATH"), obsidian, err)
+	if obsidian then
+		use {
+			"epwalsh/obsidian.nvim",
+			tag = "*",  -- recommended, use latest release instead of latest commit
+			requires = {
+				-- Required.
+				"nvim-lua/plenary.nvim",
+			}
 		}
-	}
+	end
 end)
