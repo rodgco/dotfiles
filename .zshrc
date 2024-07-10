@@ -117,9 +117,3 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export AOC_SESSION=53616c7465645f5f0a074ed932ffe272d050dcec5f11448b793b9d7c48ef072c2e86cc988e5d31676e10197d60171cd45dd6fac01015b104c2140682d03dacef
-
-eval $(thefuck --alias)
-
-# Turso
-export PATH="/home/rodrigo/.turso:$PATH"
