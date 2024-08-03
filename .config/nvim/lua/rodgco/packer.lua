@@ -1,4 +1,4 @@
-	-- This file can be loaded by calling `lua require('plugins')` from your init.vim
+-- This file can be loaded by calling `lua require('plugins')` from your init.vim
 
 --- Check if a file or directory exists in this path
 local function exists(file)
@@ -111,6 +111,7 @@ return require('packer').startup(function(use)
 			}
 		end
 	}
+	use { "fatih/vim-go" }
 	use { "kyazdani42/nvim-web-devicons" }
 	use { 'Shougo/context_filetype.vim' }
 	use { 'christoomey/vim-tmux-navigator' }

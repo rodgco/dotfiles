@@ -1,5 +1,27 @@
+echo "Loading .zshrc"
+
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:/usr/local/go/bin:$HOME/go/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/go/bin:$PATH
+
+if [ -d "$HOME/.cargo/env" ] ; then
+	source "$HOME/.cargo/env"
+	. "$HOME/.cargo/env"
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
+# set PATH so it includes user's go bin if it exists
+if [ -d "$HOME/go/bin" ] ; then
+	PATH="$HOME/go/bin:$PATH"
+fi
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -58,7 +80,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git nvm conda)
+plugins=(git nvm conda asdf)
 
 # OMZ NVM Plugin
 zstyle ':omz:plugins:nvm' autoload true
@@ -89,31 +111,36 @@ alias vim="nvim"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='rg --files --sort path --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*}"'
+export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles/.dotfiles/ --work-tree=$HOME'
 alias s="git status -sb"
 
-export FZF_DEFAULT_COMMAND='rg --files --sort path --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*}"'
+hash -d github.com=$HOME/dev/github
 
-export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
-
-hash -d github.com=/home/rodrigo/dev/github
-
-export PNPM_HOME="/home/rodrigo/.local/share/pnpm"
+export PNPM_HOME=$HOME/.local/share/pnpm
 export PATH="$PATH:$PNPM_HOME"
 
 # bun completions
-[ -s "/home/rodrigo/.bun/_bun" ] && source "/home/rodrigo/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source $HOME/.bun/_bun
 
 # Bun
-export BUN_INSTALL="/home/rodrigo/.bun"
+export BUN_INSTALL=$HOME/.bun
 export PATH="$PATH:$BUN_INSTALL/bin"
 
-source /home/rodrigo/.config/broot/launcher/bash/br
+[ -f $HOME/.config/broot/launcher/bash/br ] && source $HOME/.config/broot/launcher/bash/br
 
 export VIRTUAL_ENV_DISABLE_PROMPT=True
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+# Turso
+export PATH="$PATH:$HOME/.turso"
+
+# TMUX Sesionizer
+bindkey -s ^f "tmux-sessionizer\n"
 
